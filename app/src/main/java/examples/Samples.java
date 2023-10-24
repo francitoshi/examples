@@ -12,32 +12,25 @@ public class Samples
 {
     public static int lcm(int... n)
     {
-        int[] a= n.clone();
-        boolean nop=false;
-        while(nop==false)
+        int[] m = n.clone();
+        boolean updated=true;
+        int max = 0;
+        while(updated)
         {
-            nop=true;
+            updated=false;
+            int ant = max;
             for(int i=0;i<n.length;i++)
             {
-                if(i<n.length-1)
+                while(m[i]<max)
                 {
-                    if(a[i]<a[i+1])
-                    {
-                        a[i]+=n[i];
-                        nop=false;
-                    }
+                    m[i] += n[i];
+                    updated=true;
                 }
-                else
-                {
-                   if(a[i-1]>a[i])
-                    {
-                        a[i]+=n[i];
-                        nop=false;
-                    } 
-                }
+                max = Math.max(max, m[i]);
             }
-       }
-        return a[0];
+            updated = updated | ant!=max; 
+        }
+        return max;
     }
     
     public static int gcd(int... n)
