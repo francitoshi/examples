@@ -12,7 +12,32 @@ public class Samples
 {
     public static int lcm(int... n)
     {
-        return 0;
+        int[] a= n.clone();
+        boolean nop=false;
+        while(nop==false)
+        {
+            nop=true;
+            for(int i=0;i<n.length;i++)
+            {
+                if(i<n.length-1)
+                {
+                    if(a[i]<a[i+1])
+                    {
+                        a[i]+=n[i];
+                        nop=false;
+                    }
+                }
+                else
+                {
+                   if(a[i-1]>a[i])
+                    {
+                        a[i]+=n[i];
+                        nop=false;
+                    } 
+                }
+            }
+       }
+        return a[0];
     }
     
     public static int gcd(int... n)
