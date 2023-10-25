@@ -10,6 +10,76 @@ package examples;
  */
 public class Samples
 {
+    public static int min(int... n)
+    {
+        return 0;
+    }
+    public static long min(long... n)
+    {
+        return 0;
+    }
+    public static int max(int... n)
+    {
+        return 0;
+    }
+    public static long max(long... n)
+    {
+        return 0;
+    }
+            
+    public static double avg(int... n)
+    {
+        return 0;
+    }
+    public static double avg(long... n)
+    {
+        return 0;
+    }
+            
+    public static double avg(float... n)
+    {
+        return 0;
+    }
+            
+    public static double avg(double... n)
+    {
+        return 0;
+    }
+            
+    public static int add(int... n)
+    {
+        return 0;
+    }
+    public static long add(long... n)
+    {
+        return 0;
+    }
+    public static float add(float... n)
+    {
+        return 0;
+    }
+    public static double add(double... n)
+    {
+        return 0;
+    }
+            
+    public static int[][] add(int[][] a,int[][] b)
+    {
+        return null;
+    }
+    public static long[][] add(long[][] a,long[][] b)
+    {
+        return null;
+    }
+    public static float[][] add(float[][] a,float[][] b)
+    {
+        return null;
+    }
+    public static double[][] add(double[][] a,double[][] b)
+    {
+        return null;
+    }
+            
     public static int lcm(int... n)
     {
         int[] m = n.clone();

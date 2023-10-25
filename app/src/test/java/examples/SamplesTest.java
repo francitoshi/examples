@@ -202,5 +202,313 @@ public class SamplesTest
         assertArrayEquals(a3, Samples.split(a, 3));
         assertArrayEquals(a4, Samples.split(a, 4));
     }
+
+    /**
+     * Test of min method, of class Samples.
+     */
+    @Test
+    public void testMin_intArr()
+    {
+        assertEquals(0, Samples.min());
+        assertEquals(1, Samples.min(1,2,3));
+        assertEquals(1, Samples.min(3,2,1));
+        assertEquals(1, Samples.min(3,2,5));
+        assertEquals(-5, Samples.min(-3,-2,-5));
+    }
+
+    /**
+     * Test of min method, of class Samples.
+     */
+    @Test
+    public void testMin_longArr()
+    {
+        assertEquals(0L, Samples.min(new long[0]));
+        assertEquals(1L, Samples.min(1L,2L,3L));
+        assertEquals(1L, Samples.min(3L,2L,1L));
+        assertEquals(1L, Samples.min(3L,2L,5L));
+        assertEquals(-5L, Samples.min(-3L,-2L,-5L));
+    }
+
+    /**
+     * Test of max method, of class Samples.
+     */
+    @Test
+    public void testMax_intArr()
+    {
+        assertEquals(0, Samples.max());
+        assertEquals(3, Samples.max(1,2,3));
+        assertEquals(3, Samples.max(3,2,1));
+        assertEquals(5, Samples.max(3,2,5));
+        assertEquals(-2, Samples.max(-3,-2,-5));
+    }
+
+    /**
+     * Test of max method, of class Samples.
+     */
+    @Test
+    public void testMax_longArr()
+    {
+        assertEquals(0L, Samples.max(new long[0]));
+        assertEquals(3L, Samples.max(1L,2L,3L));
+        assertEquals(3L, Samples.max(3L,2L,1L));
+        assertEquals(5L, Samples.max(3L,2L,5L));
+        assertEquals(-2L, Samples.max(-3L,-2L,-5L));
+    }
+
+    /**
+     * Test of avg method, of class Samples.
+     */
+    @Test
+    public void testAvg_intArr()
+    {
+        assertEquals(0, Samples.avg());
+        assertEquals(2, Samples.avg(1,2,3));
+        assertEquals(2, Samples.avg(3,2,1));
+        assertEquals(3.333f, Samples.avg(3,2,5),0.005f);
+        assertEquals(-3.333f, Samples.avg(-3,-2,-5),0.005f);
+    }
+
+    /**
+     * Test of avg method, of class Samples.
+     */
+    @Test
+    public void testAvg_longArr()
+    {
+        assertEquals(0, Samples.avg(new long[0]));
+        assertEquals(2, Samples.avg(1L,2L,3L));
+        assertEquals(2, Samples.avg(3L,2L,1L));
+        assertEquals(3.333f, Samples.avg(3L,2L,5L),0.005f);
+        assertEquals(-3.333f, Samples.avg(-3L,-2L,-5L),0.005f);
+    }
+
+    /**
+     * Test of avg method, of class Samples.
+     */
+    @Test
+    public void testAvg_floatArr()
+    {
+        assertEquals(0, Samples.avg(new long[0]));
+        assertEquals(2, Samples.avg(1f,2f,3f));
+        assertEquals(2, Samples.avg(3f,2f,1f));
+        assertEquals(3.333f, Samples.avg(3f,2f,5f),0.005f);
+        assertEquals(-3.333f, Samples.avg(-3f,-2f,-5f),0.005f);
+    }
+
+    /**
+     * Test of avg method, of class Samples.
+     */
+    @Test
+    public void testAvg_doubleArr()
+    {
+        assertEquals(0.0, Samples.avg(new long[0]));
+        assertEquals(2.0, Samples.avg(1d,2d,3d));
+        assertEquals(2.0, Samples.avg(3d,2d,1d));
+        assertEquals(3.333, Samples.avg(3d,2d,5d),0.005d);
+        assertEquals(-3.333, Samples.avg(-3d,-2d,-5d),0.005d);
+    }
+
+    /**
+     * Test of add method, of class Samples.
+     */
+    @Test
+    public void testAdd_intArr()
+    {
+        assertEquals(0, Samples.add());
+        assertEquals(6, Samples.add(1,2,3));
+        assertEquals(6, Samples.add(3,2,1));
+        assertEquals(10, Samples.add(3,2,5));
+        assertEquals(-10, Samples.add(-3,-2,-5));
+    }
+
+    /**
+     * Test of add method, of class Samples.
+     */
+    @Test
+    public void testAdd_longArr()
+    {
+        assertEquals(0, Samples.add(new long[0]));
+        assertEquals(6, Samples.add(1L,2L,3L));
+        assertEquals(6, Samples.add(3L,2L,1L));
+        assertEquals(10, Samples.add(3L,2L,5L));
+        assertEquals(-10, Samples.add(-3L,-2L,-5L));
+    }
+
+    /**
+     * Test of add method, of class Samples.
+     */
+    @Test
+    public void testAdd_floatArr()
+    {
+        assertEquals(0, Samples.add(new float[0]));
+        assertEquals(6, Samples.add(1f,2f,3f));
+        assertEquals(6, Samples.add(3f,2f,1f));
+        assertEquals(10, Samples.add(3f,2f,5f));
+        assertEquals(-10, Samples.add(-3f,-2f,-5f));
+    }
+
+    /**
+     * Test of add method, of class Samples.
+     */
+    @Test
+    public void testAdd_doubleArr()
+    {
+        assertEquals(0, Samples.add(new float[0]));
+        assertEquals(6, Samples.add(1d,2d,3d));
+        assertEquals(6, Samples.add(3d,2d,1d));
+        assertEquals(10, Samples.add(3d,2d,5d));
+        assertEquals(-10, Samples.add(-3d,-2d,-5d));
+    }
+
+    /**
+     * Test of add method, of class Samples.
+     */
+    @Test
+    public void testAdd_intArrArr_intArrArr()
+    {
+        int[][] m1_1 = {{1}};
+        int[][] m1_2 = {{2}};
+        assertArrayEquals(m1_2, Samples.add(m1_1, m1_1));
+        int[][] m2_1 =
+        {
+            {1, 1}, 
+            {1, 1}
+        };
+        int[][] m2_2 = 
+        {
+            {2, 2}, 
+            {2, 2}
+        };
+        assertArrayEquals(m2_2, Samples.add(m2_1, m2_1));
+        int[][] m3_a =
+        {
+            {1, 2}, 
+            {3, 4}
+        };
+        int[][] m3_b = 
+        {
+            {9, 8}, 
+            {7, 6}
+        };
+        int[][] m3_c = 
+        {
+            {10, 10}, 
+            {10, 10}
+        };
+        assertArrayEquals(m3_c, Samples.add(m3_a, m3_b));
+    }
+
+    /**
+     * Test of add method, of class Samples.
+     */
+    @Test
+    public void testAdd_longArrArr_longArrArr()
+    {
+        long[][] m1_1 = {{1}};
+        long[][] m1_2 = {{2}};
+        assertArrayEquals(m1_2, Samples.add(m1_1, m1_1));
+        long[][] m2_1 =
+        {
+            {1, 1}, 
+            {1, 1}
+        };
+        long[][] m2_2 = 
+        {
+            {2, 2}, 
+            {2, 2}
+        };
+        assertArrayEquals(m2_2, Samples.add(m2_1, m2_1));
+        long[][] m3_a =
+        {
+            {1, 2}, 
+            {3, 4}
+        };
+        long[][] m3_b = 
+        {
+            {9, 8}, 
+            {7, 6}
+        };
+        long[][] m3_c = 
+        {
+            {10, 10}, 
+            {10, 10}
+        };
+        assertArrayEquals(m3_c, Samples.add(m3_a, m3_b));
+    }
+
+    /**
+     * Test of add method, of class Samples.
+     */
+    @Test
+    public void testAdd_floatArrArr_floatArrArr()
+    {
+        float[][] m1_1 = {{1}};
+        float[][] m1_2 = {{2}};
+        assertArrayEquals(m1_2, Samples.add(m1_1, m1_1));
+        float[][] m2_1 =
+        {
+            {1, 1}, 
+            {1, 1}
+        };
+        float[][] m2_2 = 
+        {
+            {2, 2}, 
+            {2, 2}
+        };
+        assertArrayEquals(m2_2, Samples.add(m2_1, m2_1));
+        float[][] m3_a =
+        {
+            {1, 2}, 
+            {3, 4}
+        };
+        float[][] m3_b = 
+        {
+            {9, 8}, 
+            {7, 6}
+        };
+        float[][] m3_c = 
+        {
+            {10, 10}, 
+            {10, 10}
+        };
+        assertArrayEquals(m3_c, Samples.add(m3_a, m3_b));
+    }
+
+    /**
+     * Test of add method, of class Samples.
+     */
+    @Test
+    public void testAdd_doubleArrArr_doubleArrArr()
+    {
+        double[][] m1_1 = {{1}};
+        double[][] m1_2 = {{2}};
+        assertArrayEquals(m1_2, Samples.add(m1_1, m1_1));
+        double[][] m2_1 =
+        {
+            {1, 1}, 
+            {1, 1}
+        };
+        double[][] m2_2 = 
+        {
+            {2, 2}, 
+            {2, 2}
+        };
+        assertArrayEquals(m2_2, Samples.add(m2_1, m2_1));
+        double[][] m3_a =
+        {
+            {1, 2}, 
+            {3, 4}
+        };
+        double[][] m3_b = 
+        {
+            {9, 8}, 
+            {7, 6}
+        };
+        double[][] m3_c = 
+        {
+            {10, 10}, 
+            {10, 10}
+        };
+        assertArrayEquals(m3_c, Samples.add(m3_a, m3_b));
+    }
     
 }
