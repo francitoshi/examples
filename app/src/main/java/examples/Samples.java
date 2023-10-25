@@ -293,5 +293,9 @@ public class Samples
     {
         return null;
     }
+    public static int[][][] multiplicationTable(int min, int max)
+    {
+        return null;
+    }
     
 }

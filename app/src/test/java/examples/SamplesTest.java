@@ -528,5 +528,74 @@ public class SamplesTest
         };
         assertArrayEquals(m3_c, Samples.add(m3_a, m3_b));
     }
+
+    /**
+     * Test of multiplicationTable method, of class Samples.
+     */
+    @Test
+    public void testMultiplicationTable()
+    {
+        int[][][] t1_1 = 
+        {
+            {
+                {1,1,1}
+            },
+        };
+        int[][][] t2_2 = 
+        {
+            {
+                {2,2,4}
+            },
+        };
+        int[][][] t1_3 = 
+        {
+            {
+                {1,1,1},
+                {1,2,2},
+                {1,3,3},
+            },
+            {
+                {2,1,2},
+                {2,2,4},
+                {2,3,6},
+            },
+            {
+                {3,1,3},
+                {3,2,6},
+                {3,3,9},
+            },
+        };
+        int[][][] t2_3 = 
+        {
+            {
+                {2,2,4},
+                {2,3,6},
+            },
+            {
+                {3,2,6},
+                {3,3,9},
+            },
+        };
+        assertArrayEquals(t1_1, Samples.multiplicationTable(1, 1));
+        assertArrayEquals(t2_2, Samples.multiplicationTable(2, 2));
+        assertArrayEquals(t1_3, Samples.multiplicationTable(1, 3));
+        assertArrayEquals(t2_3, Samples.multiplicationTable(2, 3));
+
+        int[][][] t10 = Samples.multiplicationTable(1, 10);
+        assertEquals(10, t10.length);
+        assertEquals(10, t10[0].length);
+        assertEquals(3, t10[0][0].length);
+        
+        for(int i=0;i<t10.length;i++)
+        {
+            for(int j=0;j<t10.length;j++)
+            {
+                assertEquals(i+1, t10[i][j][0]);
+                assertEquals(j+1, t10[i][j][1]);
+                assertEquals((i+1)*(j+1), t10[i][j][2]);
+            }
+        }
+        
+    }
     
 }
