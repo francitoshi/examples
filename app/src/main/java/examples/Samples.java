@@ -12,72 +12,193 @@ public class Samples
 {
     public static int min(int... n)
     {
-        return 0;
+        int a =n.length==0? 0 : Integer.MAX_VALUE;
+        
+        for(int i=0;i<n.length;i++)
+        {
+            if(n[i]<a)
+            {
+                a=n[i];
+            }
+        }
+        return a;
     }
     public static long min(long... n)
     {
-        return 0;
+        long a = n.length==0 ? 0 : Long.MAX_VALUE;
+        for(int i=0;i<n.length;i++)
+        {
+            if(n[i]<a)
+            {
+                a=n[i];
+            }
+        }
+        return a;
     }
     public static int max(int... n)
     {
-        return 0;
+        int a = n.length==0 ? 0 : Integer.MIN_VALUE;
+        for(int i=0;i<n.length;i++)
+        {
+            if(n[i]>a)
+            {
+                a=n[i];
+            }
+        }
+        return a;
     }
     public static long max(long... n)
     {
-        return 0;
+        long a = n.length==0?0: Long.MIN_VALUE;
+        for(int i=0;i<n.length;i++)
+        {
+            if(n[i]>a)
+            {
+                a=n[i];
+            }
+        }
+        return a;
     }
             
     public static double avg(int... n)
     {
-        return 0;
+        double sum=0.0;
+        for(int i=0;i<n.length;i++)
+        {
+            sum+=n[i];
+        }
+        return n.length==0 ? 0 : sum/n.length;
     }
     public static double avg(long... n)
     {
-        return 0;
+        double sum=0.0;
+        for(int i=0;i<n.length;i++)
+        {
+            sum+=n[i];
+        }
+        return n.length==0 ? 0 : sum/n.length;
     }
             
     public static double avg(float... n)
     {
-        return 0;
+        double sum=0.0;
+        for(int i=0;i<n.length;i++)
+        {
+            sum+=n[i];
+        }
+        return n.length==0 ? 0 : sum/n.length;
     }
             
     public static double avg(double... n)
     {
-        return 0;
+        double sum=0.0;
+        for(int i=0;i<n.length;i++)
+        {
+            sum+=n[i];
+        }
+        return n.length==0 ? 0 : sum/n.length;
     }
             
     public static int add(int... n)
     {
-        return 0;
+        int sum=0;
+        for(int i=0;i<n.length;i++)
+        {
+            sum+=n[i];
+        }
+        return sum;
     }
     public static long add(long... n)
     {
-        return 0;
+        long sum=0;
+        for(int i=0;i<n.length;i++)
+        {
+            sum+=n[i];
+        }
+        return sum;
     }
     public static float add(float... n)
     {
-        return 0;
+        float sum=0;
+        for(int i=0;i<n.length;i++)
+        {
+            sum+=n[i];
+        }
+        return sum;
     }
     public static double add(double... n)
     {
-        return 0;
+        double sum=0;
+        for(int i=0;i<n.length;i++)
+        {
+            sum+=n[i];
+        }
+        return sum;
     }
             
     public static int[][] add(int[][] a,int[][] b)
     {
-        return null;
+        if(a.length==0 || b.length==0)
+        {
+            return new int[0][0];
+        }
+        int c[][] = new int[b.length][b[0].length];
+        for(int i=0;i<b.length;i++)
+        {
+            for(int j=0;j<b[i].length;j++)
+            {
+                c[i][j]=a[i][j]+b[i][j];
+            }
+        }
+        return c;
     }
     public static long[][] add(long[][] a,long[][] b)
     {
-        return null;
+        if(a.length==0 || b.length==0)
+        {
+            return new long[0][0];
+        }
+        long c[][] = new long[b.length][b[0].length];
+        for(int i=0;i<b.length;i++)
+        {
+            for(int j=0;j<b[i].length;j++)
+            {
+                c[i][j]=a[i][j]+b[i][j];
+            }
+        }
+        return c;
     }
     public static float[][] add(float[][] a,float[][] b)
     {
-        return null;
+        if(a.length==0 || b.length==0)
+        {
+            return new float[0][0];
+        }
+        float c[][] = new float[b.length][b[0].length];
+        for(int i=0;i<b.length;i++)
+        {
+            for(int j=0;j<b[i].length;j++)
+            {
+                c[i][j]=a[i][j]+b[i][j];
+            }
+        }
+        return c;
     }
     public static double[][] add(double[][] a,double[][] b)
     {
-        return null;
+        if(a.length==0 || b.length==0)
+        {
+            return new double[0][0];
+        }
+        double c[][] = new double[b.length][b[0].length];
+        for(int i=0;i<b.length;i++)
+        {
+            for(int j=0;j<b[i].length;j++)
+            {
+                c[i][j]=a[i][j]+b[i][j];
+            }
+        }
+        return c;
     }
             
     public static int lcm(int... n)
@@ -105,11 +226,46 @@ public class Samples
     
     public static int gcd(int... n)
     {
-        return 0;
+        int m = min(n);
+        for(int i=m;i>0;i--)
+        {
+            boolean div=true;
+            for(int j=0;j<n.length;j++)
+            {
+                if(n[j]%i!=0)
+                {
+                    div=false;
+                    break;
+                }
+            }
+            if(div==true)
+            {
+                return i;
+            }
+        }
+        return 1;
     }
     public static long lcm(long... n)
     {
-        return 0;
+        long[] m = n.clone();
+        boolean updated=true;
+        long max = 0;
+        while(updated)
+        {
+            updated=false;
+            long ant = max;
+            for(int i=0;i<n.length;i++)
+            {
+                while(m[i]<max)
+                {
+                    m[i] += n[i];
+                    updated=true;
+                }
+                max = Math.max(max, m[i]);
+            }
+            updated = updated | ant!=max; 
+        }
+        return max;
     }
     
     public static long gcd(long... n)

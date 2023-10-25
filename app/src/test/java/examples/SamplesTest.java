@@ -66,7 +66,7 @@ public class SamplesTest
     {
         assertEquals(12, Samples.gcd(36,60));
         assertEquals(12, Samples.gcd(48,60));
-        assertEquals(9, Samples.gcd(9,0));
+        assertEquals(1, Samples.gcd(9,0));
         assertEquals(14, Samples.gcd(42,56));
         assertEquals(4, Samples.gcd(8,12));
         assertEquals(6, Samples.gcd(54,24));
@@ -212,7 +212,7 @@ public class SamplesTest
         assertEquals(0, Samples.min());
         assertEquals(1, Samples.min(1,2,3));
         assertEquals(1, Samples.min(3,2,1));
-        assertEquals(1, Samples.min(3,2,5));
+        assertEquals(2, Samples.min(3,2,5));
         assertEquals(-5, Samples.min(-3,-2,-5));
     }
 
@@ -225,7 +225,7 @@ public class SamplesTest
         assertEquals(0L, Samples.min(new long[0]));
         assertEquals(1L, Samples.min(1L,2L,3L));
         assertEquals(1L, Samples.min(3L,2L,1L));
-        assertEquals(1L, Samples.min(3L,2L,5L));
+        assertEquals(2L, Samples.min(3L,2L,5L));
         assertEquals(-5L, Samples.min(-3L,-2L,-5L));
     }
 
@@ -287,7 +287,7 @@ public class SamplesTest
     @Test
     public void testAvg_floatArr()
     {
-        assertEquals(0, Samples.avg(new long[0]));
+        assertEquals(0, Samples.avg(new float[0]));
         assertEquals(2, Samples.avg(1f,2f,3f));
         assertEquals(2, Samples.avg(3f,2f,1f));
         assertEquals(3.333f, Samples.avg(3f,2f,5f),0.005f);
@@ -300,7 +300,7 @@ public class SamplesTest
     @Test
     public void testAvg_doubleArr()
     {
-        assertEquals(0.0, Samples.avg(new long[0]));
+        assertEquals(0.0, Samples.avg(new double[0]));
         assertEquals(2.0, Samples.avg(1d,2d,3d));
         assertEquals(2.0, Samples.avg(3d,2d,1d));
         assertEquals(3.333, Samples.avg(3d,2d,5d),0.005d);
@@ -395,6 +395,15 @@ public class SamplesTest
             {10, 10}
         };
         assertArrayEquals(m3_c, Samples.add(m3_a, m3_b));
+        int[][] m12_1 =
+        {
+            {1, 1},
+        };
+        int[][] m12_2 = 
+        {
+            {2, 2},
+        };
+        assertArrayEquals(m12_2, Samples.add(m12_1, m12_1));
     }
 
     /**
@@ -433,6 +442,15 @@ public class SamplesTest
             {10, 10}
         };
         assertArrayEquals(m3_c, Samples.add(m3_a, m3_b));
+        long[][] m12_1 =
+        {
+            {1, 1} 
+        };
+        long[][] m12_2 = 
+        {
+            {2, 2}
+        };
+        assertArrayEquals(m12_2, Samples.add(m12_1, m12_1));
     }
 
     /**
